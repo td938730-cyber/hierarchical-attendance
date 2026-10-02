@@ -1,0 +1,71 @@
+ ### How to Run Locally:
+
+  Terminal 1 — Backend API:
+    $env:PYTHONPATH="backend"
+    .\backend\venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --reload --port 8000
+  API Swagger Documentation: http://localhost:8000/docs
+  Terminal 2 — React Frontend:
+
+    cd frontend
+    npm run dev
+
+  Frontend Web App: http://localhost:5173
+────────────────────────────────────────────────────────────
+> how to run the application explain
+
+▸ Thought for 6s
+  First, determine the prerequisites for both backend and frontend components. This involves identifying any necessar..
+  Here is a step-by-step guide to running the Hierarchical Attendance Management System on your machine.
+  ──────
+  ### Step 1: Start the Backend (FastAPI)
+
+  Open your first terminal (PowerShell) in the project directory (C:\Users\asus\hierarchical-attendance) and run:
+
+    # 1. Set the Python path to backend
+    $env:PYTHONPATH="backend"
+
+    # 2. Launch the FastAPI server with hot-reload
+    .\backend\venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --reload --port 8000
+
+  │ Backend is now running!
+  │
+  │ • API Base URL: http://localhost:8000
+  │ • Interactive Swagger Docs: http://localhost:8000/docs http://localhost:8000/docs
+  (Note: The database attendance.db is already pre-seeded with sample users and past attendance records).
+  ──────
+  ### Step 2: Start the Frontend (React + Vite)
+  Open a second terminal window, navigate to the frontend folder, and start the development server:
+
+    cd C:\Users\asus\hierarchical-attendance\frontend
+    npm run dev
+
+  │ Frontend is now running!
+  │
+  │ • Web App URL: http://localhost:5173 http://localhost:5173
+  ──────
+  ### Step 3: Open and Test the Application
+
+  Open your browser and visit http://localhost:5173 http://localhost:5173.
+
+  You will see the login screen with 1-Click Quick Demo Login buttons for all 4 organizational tiers:
+
+   Role                                         | Email                   | Password    | What You Can Test
+  ----------------------------------------------|-------------------------|-------------|----------------------------------------
+   Admin (Bhaskar Jyoti Baruah)                 | admin@assamtech.in      | admin123    | View full Interactive Org Tree,
+                                                |                         |             | add/edit users, reassign managers,
+                                                |                         |             | view enterprise-wide attendance ledger.
+   Manager (Gitashree Saikia)                   | gitashree.mgr@assamtech.in | password123 | Go to Team Attendance → view all
+                                                |                         |             | downline reports (Kaushik, Ananya,
+                                                |                         |             | Debabrata) or toggle direct reports only.
+   Team Lead (Kaushik Hazarika)                 | kaushik.lead@assamtech.in | password123 | Reports to Gitashree; supervises
+                                                |                         |             | Ananya and Debabrata.
+   Employee (Ananya Phukan)                     | ananya.dev@assamtech.in | password123 | Test live Clock In / Clock Out
+                                                |                         |             | punch widget, view personal hours,
+                                                |                         |             | summary stats, and attendance logs.
+  ──────
+  ### Step 4 (Optional): Running Automated Tests
+
+  To run the automated verification test suite:
+
+    $env:PYTHONPATH="backend"
+    .\backend\venv\Scripts\pytest.exe backend\tests -v
