@@ -11,6 +11,12 @@ import app.models
 async def lifespan(app: FastAPI):
     # Initialize database tables on startup
     Base.metadata.create_all(bind=engine)
+    # Auto-seed initial demo data if database is fresh
+    try:
+        from app.initial_data import seed_database
+        seed_database()
+    except Exception as e:
+        print(f"Startup seeding notice: {e}")
     yield
 
 app = FastAPI(
